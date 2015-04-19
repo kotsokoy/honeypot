@@ -1,0 +1,35 @@
+ggg_notices_homepage:
+    pattern:  /
+    defaults: { _controller: GGGNoticesBundle:Default:index }
+
+ggg_notices_marques:
+    pattern: /marques
+    defaults: { _controller: GGGNoticesBundle:Default:listemarques }
+
+ggg_notices_marques_nom:
+    pattern: /marques/{nom}
+    defaults: { _controller: GGGNoticesBundle:Default:marques }
+
+
+ggg_notices_categories:
+    pattern: /categories
+    defaults: { _controller: GGGNoticesBundle:Default:listecategories }
+
+ggg_notices_categories_nom:
+    pattern: /categories/{nom}
+    defaults: { _controller: GGGNoticesBundle:Default:categories }
+
+ggg_notices_appareil_id:
+    pattern: /appareil/{id}
+    defaults: { _controller: GGGNoticesBundle:Default:appareil }
+
+ggg_notices_recherche:
+    pattern: /recherche/{motif}
+    defaults:
+        _controller: GGGNoticesBundle:Default:recherche
+        motif:
+    requirements:
+        motif: ".*"
+
+
+

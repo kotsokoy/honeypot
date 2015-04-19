@@ -1,0 +1,7 @@
+parameters:
+#    ggg_notices.example.class: GGG\Bundle\NoticesBundle\Example
+
+services:
+#    ggg_notices.example:
+#        class: %ggg_notices.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

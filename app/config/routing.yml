@@ -1,0 +1,25 @@
+ggg_admin:
+    resource: "@GGGAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+ggg_user:
+    resource: "@GGGUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ggg_notices:
+    resource: "@GGGNoticesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+login:
+    pattern:  /login
+    defaults: { _controller: GGGUserBundle:Security:login }
+
+
+login_check:
+    pattern:  /login_check
+
+
+logout:
+    pattern:  /logout
+

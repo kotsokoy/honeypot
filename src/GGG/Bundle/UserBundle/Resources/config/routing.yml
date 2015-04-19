@@ -1,0 +1,8 @@
+#ggg_user_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: GGGUserBundle:Default:index }
+
+
+ggg_user_inscription:
+    pattern: /inscription
+    defaults : { _controller: GGGUserBundle:Default:inscription }

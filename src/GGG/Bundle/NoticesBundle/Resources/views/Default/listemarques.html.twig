@@ -1,0 +1,31 @@
+{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
+{% block title %}
+Toutes les marques
+{% endblock %}
+
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_liste.css') }}"/>
+{% endblock %}
+
+
+
+{% block wrapper %}
+
+
+{% for message in app.session.flashbag.get('erreur') %}
+<p class="erreur">
+	Info: {{ message|raw }}
+</p>
+{% endfor %}
+
+<div class="marques">
+{% for marque in marques %}
+<div class="marque"><a href="{{ path('ggg_notices_marques_nom',{ 'nom': marque.nom }) }}">{{ marque.nom|upper }}  {% if marque.logo %}<img src="/bundles/gggnotices/images/{{ marque.logo }}.jpg" alt="logo {{ marque.nom }}"/>{% else %}<img src="/bundles/gggnotices/images/erreur_logo_marque.png" alt="pas de logo disponible pour la marque {{ marque.nom }}"/>{% endif %}</a></div>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/resize_img.js') }}"></script>
+{% endblock  %}

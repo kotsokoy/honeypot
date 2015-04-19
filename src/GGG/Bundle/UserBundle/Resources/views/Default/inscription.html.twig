@@ -1,0 +1,32 @@
+{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
+
+
+{% block title %}
+Page des inscriptions
+{% endblock %}
+
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/ggguser/css/form_ins.css') }}"/>
+{% endblock %}
+
+{% block wrapper %}
+<h1>Créer votre compte pour consulter les notices, recevoir des alertes sur la parution des notices, etc.</h1>
+
+{% for succes in app.session.flashbag.get('succes') %}<p class="info">{{ succes|raw }}</p>{% endfor %}
+{% for erreur in app.session.flashbag.get('erreur') %}<p class="erreur">{{ erreur|raw }}</p>{% endfor %}
+<form action="" method="POST" id="form_ins">
+
+<div class="login"><label for="login" title="login">Login</label><input id="login" name="login" type="text" value="{% if user.username is defined %}{{ user.username }}{% endif %}"/></div>
+
+<div class="password"><label for="password" title="password">Mot de passe</label><input id="password" name="password" type="password" value=""/></div>
+
+<div class="password"><label for="password_conf" title="confirm password">Confirmation mot de passe</label><input id="password_conf" name="password_conf" type="password" value=""/></div>
+
+<div class="email"><label for="email" title="confirm e-mail">E-mail</label><input id="email" name="email" type="email" value="{% if user.email is defined %}{{ user.email }}{% endif %}"/></div>
+
+<div class="email"><label for="email_conf" title="confirm e-mail">Email confirmation</label><input id="email_conf" name="email_conf" type="email" /></div>
+
+<input name="btn_submit" type="submit" value="Je m'inscris"/>
+</form>
+
+{% endblock %}

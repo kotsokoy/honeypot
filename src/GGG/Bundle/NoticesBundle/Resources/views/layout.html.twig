@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
+
+{% block stylesheet %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style.css') }}"/>
+{% endblock %}
+
+<title>
+{% block title %}Honeypot-1{% endblock %}
+</title>
+
+</head>
+<body>
+
+{% block body %}
+
+<div class="wrapper">
+
+{% block h1 %}
+<h1>Trouver la notice de votre objet en 3 clics</h1>
+{% endblock %}
+
+<ul class="menu">
+
+<li><a href="{{ path('ggg_notices_marques') }}">Toutes les marques</a></li>
+
+</ul>
+
+
+
+{% block content %}
+
+LAYOUT DE BASE
+
+{% endblock %}
+
+</div><!-- fin wrapper-->
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
+{% block title %}
+Toutes les catégories
+{% endblock %}
+
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_liste.css') }}"/>
+{% endblock %}
+
+
+{% block wrapper %}
+
+
+{% for message in app.session.flashbag.get('erreur') %}
+<p class="erreur">
+	Info: {{ message|raw }}
+</p>
+{% endfor %}
+
+
+<div class="gauche">
+
+<ul>
+{% for categorie in categories %}
+<li><a href="{{ path('ggg_notices_categories_nom',{ 'nom': categorie.nom }) }}">{{ categorie.nom|upper }}</a></li>
+{% endfor %}
+<li><a href="{{ path('ggg_notices_categories_nom',{ 'nom': 'toto' }) }}">toto</a></li>
+</ul>
+
+</div>
+
+
+{% endblock %}

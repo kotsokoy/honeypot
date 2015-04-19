@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
+
+{% block stylesheets %}
+
+{% endblock %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style.css') }}"/>
+
+<title>
+{% block title %}mon-aspirateur.net{% endblock %} | Notices et manuels d'utilisation pour aspirateurs
+</title>
+
+</head>
+<body>
+
+<header>
+<img src="{{ asset('bundles/gggnotices/images/logo_happy.png') }}" 
+	 alt="logo" 
+	 title="bienvenue sur mon-aspirateur.fr"/>
+
+{% block h1 %}
+<h1>
+Trouvez la notice de votre aspirateur en quelques clics
+</h1>
+{% endblock %}
+
+
+{% block connexion %}
+<div class="log">
+
+{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+<div>Bienvenue {{ app.user.username }}
+<br/>
+<a href="{{ path('logout') }}" title="se déconnecter">déconnexion</a>
+</div>
+{% else %}
+
+{% if error is defined %}
+<p class="erreur">{{ error.message }}</p>
+{% endif %}
+
+<form action="{{ path('login_check') }}" method="post">
+<input type="text" name="_username" placeholder="pseudo ou mail" />
+<input type="password" name="_password" placeholder="password" />
+<input type="submit" value="Connexion"/>
+vous n'avez pas encore de compte ? <a href=" {{ path('ggg_user_inscription') }}" title="page des inscriptions">inscrivez-vous</a>
+</form>
+
+
+{% endif %}
+
+</div>
+{% endblock %}
+
+
+</header>
+
+<div class="wrapper">
+{% block wrapper %}
+
+
+{% for message in app.session.flashbag.get('erreur') %}
+<p class="erreur">{{ message|raw }}</p>
+{% endfor %}
+
+
+
+{% block content %}
+
+<div id="recherches">
+Entrez le nom ou la référence de votre aspirateur:
+<div id="noRes">Aucun résultats</div>
+<input name="motif" id="motif" type="search" placeholder="Exemples: PHILIPS, MV5 PREMIUM,... "/>
+<ul id="propositions">
+</ul>
+</div>
+
+Ou retrouvez votre aspirateur par sa marque ou sa catégorie:
+
+
+{% block menu %}
+
+<ul class="menu">
+
+<li><a href="{{ path('ggg_notices_marques') }}" 	title="trier par marques">Marques</a></li>
+<li><a href="{{ path('ggg_notices_categories') }}"  title="trier par catégories">Catégories</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% endblock %}
+
+</div><!-- fin wrapper-->
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/recherches.js') }}"></script>
+{% endblock %}
+</body>
+</html>

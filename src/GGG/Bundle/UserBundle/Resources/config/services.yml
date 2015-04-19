@@ -1,0 +1,6 @@
+services:
+#    ggg_user.example:
+#        class: GGG\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    ggg_user.encodeur:
+        class: GGG\Bundle\UserBundle\Services\Encodeur
