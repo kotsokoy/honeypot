@@ -1,37 +1,112 @@
-{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
 
 
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_appareil.css') }}"/>
+{% endblock %}
+
+
+<title>
+{% block title %}
+Notice pour {{ appareil.nom }} de {{ appareil.marque.nom }} | mon-aspirateur.net
+{% endblock %} 
+</title>
+
+</head>
+<body>
+
+{% include 'GGGNoticesBundle:Default:header_appareil.html.twig' %}
+
+
+<div class="wrapper">
 {% block wrapper %}
 
 
-{% block h1 %}
-<h1> Notice pour {{ appareil.nom }} de {{ appareil.marque.nom|upper }}</h1>
-{% endblock %}
+{% for message in app.session.flashbag.get('erreur') %}
+<p class="erreur">{{ message|raw }}</p>
+{% endfor %}
+
+{% for message in app.session.flashbag.get('succes') %}
+<p class="info">{{ message|raw }}</p>
+{% endfor %}
+
+
+
+
 
 <div class="appareil">
+
 <img src="/bundles/gggnotices/images/{{ appareil.photo }}.jpg" alt="{{ appareil.nom }}"/>
-<!--p class="description">{{ appareil.description }}</p-->
+
 
 {% if is_granted('ROLE_USER') and appareil.notice.fichier is defined %}
 
 <a href="/bundles/gggnotices/notices/{{ appareil.notice.fichier }}.pdf" title="notice pour {{ appareil.nom }}">
 Télécharger la notice de {{ appareil.categorie.nom|upper }} {{ appareil.marque.nom|upper }} {{ appareil.nom|upper }}
 </a>
+
 {% elseif is_granted('ROLE_USER') == false and appareil.notice.fichier is defined %}
-<p class="info">veuillez vous connecter pour consulter ou télécharger le reste de la notice</p>
-{% else %}
-<p class="error">
+
+<div class="info">
+<h2>Notice pour {{ appareil.nom }} de {{ appareil.marque.nom|upper }}</h2>
+<p>veuillez vous connecter pour consulter ou télécharger le reste de la notice</p>
+<form action="{{ path('login_check') }}" method="post">
+<input type="text" name="_username" placeholder="pseudo ou mail" />
+<input type="password" name="_password" placeholder="password" />
+<input type="submit" value="Connexion"/>
+
+</form>
+vous n'avez pas encore de compte ? <a href=" {{ path('ggg_user_inscription') }}" title="page des inscriptions">inscrivez-vous</a>
+</div>
+{% elseif is_granted('ROLE_USER') and appareil.notice.fichier is not defined %}
+
+<div class="error">
 Nous n'avons pas encore de notice pour 
 {{ appareil.categorie.nom|upper }} 
 {{ appareil.marque.nom|upper }} 
 {{ appareil.nom|upper }}
+<br/>
+<a href="{{ path('ggg_user_alerte',{ 'id' : appareil.id }) }}">je souhaite être averti quand la notice sera disponible</a>
 </p>
+
+
+{% else %}
+
+<div class="info">
+Nous n'avons pas encore de notice pour 
+{{ appareil.categorie.nom|upper }} 
+{{ appareil.marque.nom|upper }} 
+{{ appareil.nom|upper }}
+<br/>
+Connectez-vous pour faire une demande d'alerte
+<form action="{{ path('login_check') }}" method="post">
+<input type="text" name="_username" placeholder="pseudo ou mail" />
+<input type="password" name="_password" placeholder="password" />
+<input type="submit" value="Connexion"/>
+</div>
+
+
 {% endif %}
 
 </div>
 
 
+
+</div><!-- fin wrapper-->
+
+
 {% endblock %}
 
+{% include 'GGGNoticesBundle:Default:footer.html.twig' %}
+
+
 {% block js %}
+
 {% endblock %}
+
+</body>
+</html>

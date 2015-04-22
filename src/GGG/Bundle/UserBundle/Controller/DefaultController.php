@@ -24,7 +24,6 @@ class DefaultController extends Controller{
 		/* pass_temp et pass_conf_temp pour mettre dans les input en cas de formulaire invalide, 
 
 		sinon il met le mot de passe crypté (plus long) */
-;
 
 		if( $request->isMethod('POST') ){
 
@@ -88,9 +87,9 @@ class DefaultController extends Controller{
 
 					/* et on regarde si l'email existe deja */
 
-					if( $exist->findBy(array("username" => $request->request->get('email'))) ){
+					if( $exist->findBy(array("email" => $request->request->get('email'))) ){
 					 	$session = $request->getSession();
-        				$session->getFlashBag()->add('erreur','l\'e-mail'.$request->request->get('email').' existe déjà, veuillez en choisir un autre');
+        				$session->getFlashBag()->add('erreur','l\'e-mail '.$request->request->get('email').' existe déjà, veuillez en choisir un autre');
 					}
 					else{
 						$user->setEmail($request->request->get('email'));
@@ -141,6 +140,45 @@ class DefaultController extends Controller{
 			return $this->render('GGGUserBundle:Default:inscription.html.twig');
 		}
 	
+	}
+
+
+	public function alerteAction($id, Request $request){
+		
+		if( $this->get('security.context')->isGranted('ROLE_USER') ){
+
+			$manager = $this->getDoctrine()->getManager();
+			$repo = $manager->getRepository('GGGNoticesBundle:Appareil');
+
+			$appareil = $repo->find($id);
+
+			if( $appareil ){
+				$alerte = new \GGG\Bundle\UserBundle\Entity\DemandeNotice();
+				$alerte->setUser($this->getUser());
+				$alerte->setAppareil($appareil);
+				$manager->persist($alerte);
+				$manager->flush();
+			}
+
+			$session = $request->getSession();
+
+			$session->getFlashBag()->add('succes','votre demande a bien été prise en compte');
+
+			$referer = $request->server->get('HTTP_REFERER');
+            
+            if( !empty($referer) ){
+                return $this->redirect($request->server->get('HTTP_REFERER'));
+            }
+            else{
+            	 return $this->render('GGGNoticesBundle:default:layout.html.twig');
+            }
+		}
+		else{
+			$session = $request->getSession();
+			$session->getFlashBag()->add('erreur','Accès non autorisé, vous devez être connecté');
+
+			return $this->render('GGGNoticesBundle:Default:layout.html.twig');
+		}
 	}
 }
 

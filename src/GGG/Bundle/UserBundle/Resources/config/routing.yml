@@ -6,3 +6,7 @@
 ggg_user_inscription:
     pattern: /inscription
     defaults : { _controller: GGGUserBundle:Default:inscription }
+
+ggg_user_alerte:
+    pattern: /alerte/{id}
+    defaults: { _controller: GGGUserBundle:Default:alerte }

@@ -109,7 +109,7 @@ class DefaultController extends Controller
        // throw new NotFoundHttpException('La catégorie '.$nom.' n\'existe pas.');
         $session = $request->getSession();
         $session->getFlashBag()->add('erreur','Nous n\'avons pas de catégorie <b>'.$nom.'</b> dans notre base de données.');
-        return $this->redirect($this->generateUrl('ggg_notices_categories_nom',array("nom"=> $nom)));
+        return $this->redirect($this->generateUrl('ggg_notices_categories'));
     	}
         else{
             $appareilOptions['categorie'] = $categorie[0];
@@ -124,7 +124,7 @@ class DefaultController extends Controller
        // throw new NotFoundHttpException('Il n\'y a encore aucun appareil pour la catégorie '.$nom);
         $session = $request->getSession();
         $session->getFlashBag()->add('erreur','Il n\'y a pas encore d\'appareil '.strtoupper($marqueNom).' pour la catégorie '.$nom);
-        return $this->redirect($this->generateUrl('ggg_notices_categories_nom',array("nom"=>$nom)));
+        return $this->redirect($this->generateUrl('ggg_notices_categories'));
     	}
 
     	return $this->render('GGGNoticesBundle:Default:categorie.html.twig',array( "appareils"   => $appareils, 
@@ -199,7 +199,7 @@ class DefaultController extends Controller
         //throw new NotFoundHttpException('Nous n\'avons pas de marque '.$nom.' dans notre base de données.');
             $session = $request->getSession();
             $session->getFlashBag()->add('erreur','Nous n\'avons pas de marque <b>'.$nom.'</b> dans notre base de données.');
-            return $this->redirect($this->generateUrl('ggg_notices_marques_nom',array("nom"=>$nom)));
+            return $this->redirect($this->generateUrl('ggg_notices_marques'));
     	}
         else{
             $appareilOptions['marque'] = $marque[0];
@@ -214,7 +214,7 @@ class DefaultController extends Controller
         //throw new NotFoundHttpException('Il n\'y a encore aucun appareil pour la marque '.$nom);
         $session = $request->getSession();
         $session->getFlashBag()->add('erreur','Il n\'y a pas encore d\'appareil correspondant pour la marque '.strtoupper($nom));
-        return $this->redirect($this->generateUrl('ggg_notices_marques_nom',array("nom"=>$nom)));
+        return $this->redirect($this->generateUrl('ggg_notices_marques',array("nom"=>$nom)));
     	}
 
         

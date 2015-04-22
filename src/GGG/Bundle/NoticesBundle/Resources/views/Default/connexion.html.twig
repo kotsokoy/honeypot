@@ -1,0 +1,26 @@
+{% block connexion %}
+<span class="log">
+
+{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+<div>Bienvenue {{ app.user.username }}
+<br/>
+<a href="{{ path('logout') }}" title="se déconnecter">déconnexion</a>
+</div>
+{% else %}
+
+{% if error is defined %}
+<p class="erreur">{{ error.message }}</p>
+{% endif %}
+
+<form action="{{ path('login_check') }}" method="post">
+<input type="text" name="_username" placeholder="pseudo ou mail" />
+<input type="password" name="_password" placeholder="password" />
+<input type="submit" value="Connexion"/>
+
+</form>
+vous n'avez pas encore de compte ? <a href=" {{ path('ggg_user_inscription') }}" title="page des inscriptions">inscrivez-vous</a>
+
+{% endif %}
+
+</span>
+{% endblock %}

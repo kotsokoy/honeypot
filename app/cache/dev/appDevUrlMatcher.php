@@ -136,6 +136,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'GGG\\Bundle\\UserBundle\\Controller\\DefaultController::inscriptionAction',  '_route' => 'ggg_user_inscription',);
         }
 
+        // ggg_user_alerte
+        if (0 === strpos($pathinfo, '/alerte') && preg_match('#^/alerte/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ggg_user_alerte')), array (  '_controller' => 'GGG\\Bundle\\UserBundle\\Controller\\DefaultController::alerteAction',));
+        }
+
         // ggg_notices_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

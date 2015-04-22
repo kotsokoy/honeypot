@@ -1,0 +1,407 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: "Verdana", "Times New Roman", "Calibri Light", sans-serif;
+}
+
+
+body{
+	background: -webkit-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Safari 5.1 to 6.0 */
+  	background: -o-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Opera 11.1 to 12.0 */
+ 	background: -moz-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Firefox 3.6 to 15 */
+ 	background: radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white);
+}
+
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: blue;
+}
+
+a:visited{
+	text-decoration: none;
+	color: blue;
+}
+
+#header{
+	position: relative;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+
+	color: #22A;
+	font-size: 30px;
+
+
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #559;
+	font-family: "Verdana", "Times New Roman", "Calibri Light", sans-serif;
+	
+	
+	
+	background: -webkit-linear-gradient(white, rgba(169,207,226,0.3), rgba(169,207,240,0.5), rgba(169,207,226,0.3), white); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(white, rgba(169,207,226,0.3), rgba(169,207,240,0.5), rgba(169,207,226,0.3), white); /* For Opera 11.1 to 12.0 */
+ 	background: -moz-linear-gradient(white, rgba(169,207,226,0.3), rgba(169,207,240,0.5), rgba(169,207,226,0.3), white); /* For Firefox 3.6 to 15 */
+ }
+
+#header .wykoo{
+	display: inline-block;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: auto;
+	vertical-align: middle;
+}	
+
+#header .wykoo img{
+	width: 120px;
+	height: 42px;
+	float: left;
+	margin: 5px 15px 15px 15px;
+}
+
+#header i{
+	font-size: 14px;
+	color: #D1003E;
+}
+
+
+h1{	
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 15px;
+	vertical-align: middle;
+
+
+	text-align: center;
+	font-family: "Verdana", sans-serif;
+	color: #D1003E;
+	font-size: 22px;
+
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0px 2px 20px 5px #D1003E;
+	box-shadow: 0px 2px 20px 5px rgba(169,207,240,0.5);
+}
+
+.log{
+	position: absolute;
+	right: 50px;
+	display: inline-block;
+	width: 350px;
+	font-size: 15px;
+	
+
+	/*margin-left: 10%;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	vertical-align: middle;*/
+
+}
+
+/* class="menu", pour header.html.twig */
+
+nav{
+	width: 100%;
+
+	text-align: center;
+	z-index: 3;
+}
+
+.menu{
+	display: inline-block;
+
+	list-style-type: none;
+
+
+	text-align: center;
+}
+
+.menu li{
+	display: inline-block;
+	list-style-type: none;
+	margin: 10px 10px 0px 0px;
+	background-color: #4B81A1;
+	padding: 10px 10px 10px 10px;
+	font-size: 20px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: white;
+	cursor: pointer;
+}
+
+.menu li:hover{
+	background-color: transparent;
+}
+
+.menu li:hover a{
+	color: #4B81A1;
+}
+
+.menu li a{
+	color: white;
+}
+
+.menu li a:hover{
+	text-decoration: none;
+	color: #4B81A1;
+}
+
+
+.wrapper{
+	position: relative;
+	margin: 0px;
+
+
+	width: 100%;
+	min-height: 650px;
+	font-family: "Verdana", "Times New Roman", "Calibri Light", sans-serif;
+	color: #4B81A1;
+
+	font-size: 28px;
+	text-align: center;
+	background-color: rgb(169,207,226);
+
+
+	background: -webkit-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Safari 5.1 to 6.0 */
+  	background: -o-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Opera 11.1 to 12.0 */
+ 	background: -moz-radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white); /* For Firefox 3.6 to 15 */
+ 	background: radial-gradient(white, rgba(169,207,226,0.2), rgba(169,207,240,0.4), rgba(169,207,226,0.2), white);
+	/*background-image: url('/bundles/gggnotices/images/fond.png');*/
+}
+
+
+
+h2{
+	font-family: "Verdana", "Times New Roman", sans-serif;
+	margin-bottom: 1%;
+	font-size: 20px;
+}
+
+
+
+
+
+.erreur{
+	color: #FFE;
+	background-color: #F60;
+	border: solid 0px black;
+	border-radius: 2px;
+	padding: 6px;
+	font-size: 13px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+
+
+.info{
+	color: #222;
+	background-color: #EEF;
+	border: solid 0px #66D;
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 15px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 50%;
+}
+
+
+
+/* barre de recherche, pour layout.html.twig */
+#recherches{
+	padding: 2px;
+	width: 70%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+	margin-bottom: 3%;
+}
+
+
+#noRes{
+	width: 50%;
+	color: #222;
+	background-color: #F6F3DB;
+	border: solid 0px #66D;
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 20px;
+	display: none;
+	margin: 20px auto 0px auto;
+}
+
+#motif{
+	display: inline-block;
+	width: 65%;
+	margin: 30px 0px 0px 0px;
+	padding: 1%;
+	font-size: 35px;
+	border-radius: 10px 10px 10px 10px;
+	border: 1px solid rgb(28, 135, 255);
+	text-align: center;
+}
+
+#loupe{
+	display: inline-block;
+	vertical-align: bottom;
+	width: 90px;
+	height: 90px;
+}
+
+#propositions{
+	width: 50%;
+	padding: 0px;
+	color: black;
+	font-size: 16px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-color: black;
+	border-style: solid;
+	border-color: black;
+	margin: 0px 0px 10px 20%;
+	text-align: center;
+}
+
+#propositions li{
+	width: 98%;
+	padding: 1%;
+	margin: 0px;
+
+	cursor: pointer;
+	list-style-type: none;
+	
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: white;
+	border-right-color: rgb(28, 135, 255);
+	border-bottom-color: rgb(28, 135, 255);
+	border-left-color: rgb(28, 135, 255);
+	border-style: solid;
+	font-size: 25px;
+	
+	text-align: left;
+	background-color: white;
+}
+
+#propositions li:hover{
+	color: white;
+    background-color: rgb(200, 200, 210);
+}
+
+/* class="appareil" pour appareil.html.twig, marque.html.twig et categorie.html.twig */
+
+.appareil{
+	display: inline-block;
+	width: 90%;
+
+	border: 0px solid silver;
+	background-color: transparent;
+
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+
+.appareil img{
+	display: inline-block;
+	width: 400px;
+	height: 400px;
+	margin-right: 5%;
+	vertical-align: top;
+}
+
+.appareil .info{
+	display: inline-block;
+	width: 40%;
+	padding: 20px;
+	line-height: 25px;
+	background-color: transparent;
+}
+
+.appareil .error{
+	display: inline-block;
+	width: 40%;
+	padding: 20px;
+	line-height: 25px;
+	background-color: transparent;
+}
+
+.appareil a{
+	display: inline-block;
+	padding: 10px;
+	width: 40%;
+	background-color: #1E90FF;
+	color: white;
+	text-decoration: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid white;
+	font-size: 26px;
+	border-radius: 6px;
+}
+
+.appareil a:hover{
+	color: white;
+	background-color: #0000CD;
+	font-size: 25px;
+}
+
+.appareil a:visited{
+	color: white;
+	background-color: #0000CD;
+	font-size: 25px;
+}
+
+#footer{
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+	
+	background-color: rgb(240, 240, 255);
+	background-color: rgba(255, 255, 255,0.7);
+}
+
+#footer a{
+	text-decoration: none;
+	color: red;
+	margin-right: 30px;
+}
+
+#footer a:hover{
+	text-decoration: none;
+	color: red;
+}
+
+#footer a:visited{
+	text-decoration: none;
+	color: red;
+}

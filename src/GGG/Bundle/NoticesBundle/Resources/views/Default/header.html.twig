@@ -1,0 +1,37 @@
+<div id="header"><!-- On aurait pu mettre une balise <header> mais IE 8 ne connait pas...a débattre (question: POV Gooogle, Yahoo, Bing pour le referencement ? )-->
+
+<span class="wykoo">
+<a href="http://www.wykoo.com" title="Wykoo, faites durer vos appareils et économisez">
+<img src="{{ asset('bundles/gggnotices/images/logo_happy.png') }}" 
+	 alt="logo" 
+	 title="bienvenue sur mon-aspirateur.fr" width="120px" height="42px"/>
+<i>Faite durer vos appareils et économisez</i>
+</a>
+</span>
+
+
+
+{% include 'GGGNoticesBundle:Default:connexion.html.twig' %}
+
+{% block h1 %}
+<h1>
+Trouvez rapidement la notice de votre aspirateur
+</h1>
+{% endblock %}
+
+{% block menu %}
+
+<nav>
+
+<ul class="menu">
+<li><a href="{{ path('ggg_notices_homepage') }}" 	title="retour à l'accueil">Accueil</a></li>
+<li><a href="{{ path('ggg_notices_marques') }}" 	title="trier par marques">Marques</a></li>
+<li><a href="{{ path('ggg_notices_categories') }}"  title="trier par catégories">Catégories</a></li>
+</ul>
+
+
+</nav>
+
+{% endblock %}
+
+</div><!-- FIN <div id="header"> -->

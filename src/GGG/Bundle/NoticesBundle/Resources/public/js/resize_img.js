@@ -12,16 +12,16 @@ var i = 0;
 var j = 0;
 var img;
 
-	for( i = 0 ; i < document.getElementsByTagName('div').length ; i++ ){
-		if( document.getElementsByTagName('div')[i].className == 'marque' ){
+	for( i = 0 ; i < document.getElementsByTagName('li').length ; i++ ){
+		if( document.getElementsByTagName('li')[i].className == 'marque' ){
 
 			//alert('gauche trouvee');
 
-			for( j = 0 ; j < document.getElementsByTagName('div')[i].getElementsByTagName('img').length ; j++ ){
+			for( j = 0 ; j < document.getElementsByTagName('li')[i].getElementsByTagName('img').length ; j++ ){
 				
 				//alert('parcours image, j = '+j);
 
-				img = document.getElementsByTagName('div')[i].getElementsByTagName('img')[j];
+				img = document.getElementsByTagName('li')[i].getElementsByTagName('img')[j];
 
 				var ratio = ( img.width / img.height );
 				//alert('w: '+img.width);

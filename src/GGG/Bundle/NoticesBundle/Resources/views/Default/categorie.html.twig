@@ -1,12 +1,29 @@
-{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
-{% block title %}
-{{ nom }}
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
+
+
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style.css') }}"/>
 {% endblock %}
 
 
+<title>
+{% block title %}
+Tous les {{ nom }} | mon-aspirateur.net
+{% endblock %} 
+</title>
 
+</head>
+<body>
+
+{% include 'GGGNoticesBundle:Default:header.html.twig' %}
+
+
+<div class="wrapper">
 {% block wrapper %}
-
 
 
 
@@ -29,16 +46,20 @@
 <div class="appareil">
 <img src="/bundles/gggnotices/images/{{ appareil.photo }}.jpg" alt="{{ appareil.nom }}"/>
 <strong class="nom">{{ appareil.marque.nom|upper }} {{ appareil.nom|upper }}</strong> 
-<!--p class="description">{{ appareil.description }}</p-->
+
 </div>
 </a>
 {% endfor %}
 
-<!--a href="{{ path('ggg_notices_appareil_id',{ 'id': 50 }) }}">toto</a-->
-
 
 {% endblock %}
+</div><!-- fin wrapper-->
+{% include 'GGGNoticesBundle:Default:footer.html.twig' %}
+
 
 {% block js %}
 <script type="text/javascript" src="{{ asset('bundles/gggnotices/js/formulaires.js') }}"></script>
-{% endblock  %}
+{% endblock %}
+
+</body>
+</html>

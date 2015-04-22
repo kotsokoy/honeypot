@@ -1,16 +1,37 @@
-{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
+<!DOCTYPE html>
+<html>
+<head>
 
+<meta charset="ISO-8859-1"/>
 
-{% block title %}
-Page des inscriptions
-{% endblock %}
 
 {% block stylesheets %}
+
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_liste.css') }}"/>
 <link type="text/css" rel="stylesheet" href="{{ asset('bundles/ggguser/css/form_ins.css') }}"/>
+
 {% endblock %}
 
+
+<title>
+{% block title %}
+Page des inscriptions | mon-aspirateur.net
+{% endblock %}
+</title>
+
+</head>
+<body>
+
+{% include 'GGGNoticesBundle:Default:header2.html.twig' %}
+
+
+<div class="wrapper">
 {% block wrapper %}
-<h1>Créer votre compte pour consulter les notices, recevoir des alertes sur la parution des notices, etc.</h1>
+
+<ul id="propositions">
+</ul>
+
+<h2>Créer votre compte pour consulter les notices, recevoir des alertes sur la parution des notices, etc.</h2>
 
 {% for succes in app.session.flashbag.get('succes') %}<p class="info">{{ succes|raw }}</p>{% endfor %}
 {% for erreur in app.session.flashbag.get('erreur') %}<p class="erreur">{{ erreur|raw }}</p>{% endfor %}
@@ -29,4 +50,17 @@ Page des inscriptions
 <input name="btn_submit" type="submit" value="Je m'inscris"/>
 </form>
 
+
 {% endblock %}
+</div><!-- fin wrapper-->
+{% include 'GGGNoticesBundle:Default:footer.html.twig' %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/formulaires.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/recherches.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/propositions.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

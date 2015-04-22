@@ -1,16 +1,35 @@
-{% extends "GGGNoticesBundle:Default:layout.html.twig" %}
-{% block title %}
-Toutes les marques
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
 
 {% block stylesheets %}
 <link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_liste.css') }}"/>
 {% endblock %}
 
 
+{% block title %}
+<title>mon-aspirateur.net | Toutes les marques</title>
+{% endblock %}
 
+</head>
+<body>
+
+
+
+
+{% include 'GGGNoticesBundle:Default:header2.html.twig' %}
+
+
+
+<div class="wrapper">
 {% block wrapper %}
 
+<ul id="propositions">
+</ul>
+
+<h2>Retrouvez votre aspirateur parmi toutes les marques repertoriées</h2>
 
 {% for message in app.session.flashbag.get('erreur') %}
 <p class="erreur">
@@ -18,14 +37,21 @@ Toutes les marques
 </p>
 {% endfor %}
 
-<div class="marques">
+<ul class="marques">
 {% for marque in marques %}
-<div class="marque"><a href="{{ path('ggg_notices_marques_nom',{ 'nom': marque.nom }) }}">{{ marque.nom|upper }}  {% if marque.logo %}<img src="/bundles/gggnotices/images/{{ marque.logo }}.jpg" alt="logo {{ marque.nom }}"/>{% else %}<img src="/bundles/gggnotices/images/erreur_logo_marque.png" alt="pas de logo disponible pour la marque {{ marque.nom }}"/>{% endif %}</a></div>
+<li class="marque"><a href="{{ path('ggg_notices_marques_nom',{ 'nom': marque.nom }) }}">{{ marque.nom|upper }}  {% if marque.logo %}<img src="/bundles/gggnotices/images/{{ marque.logo }}.jpg" alt="logo {{ marque.nom }}"/>{% else %}<img src="/bundles/gggnotices/images/erreur_logo_marque.png" alt="pas de logo disponible pour la marque {{ marque.nom }}"/>{% endif %}</a></li>
 {% endfor %}
-</div>
+</ul>
 
+</div><!-- fin wrapper-->
 {% endblock %}
+
+{% include 'GGGNoticesBundle:Default:footer.html.twig' %}
 
 {% block js %}
 <script type="text/javascript" src="{{ asset('bundles/gggnotices/js/resize_img.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/recherches.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/propositions.js') }}"></script>
 {% endblock  %}
+</body>
+</html>

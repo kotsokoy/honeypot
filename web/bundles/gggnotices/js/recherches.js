@@ -44,7 +44,7 @@ function surligne (event){
 	event = event || window.event;
 	var target = event.target || event.srcElement;
 
-	target.style.backgroundColor = 'rgb(28, 135, 255)';
+	target.style.backgroundColor = 'rgb(200, 200, 210)';
 	target.style.color = 'rgb(255, 255, 255)';
 
 }
@@ -65,8 +65,8 @@ function recherche(event){
 	var target = event.target || event.srcElement;
 
 	//alert(event.keyCode);
-
-	if ( event.keyCode === 40 ){
+	//alert(document.getElementById('propositions').firstChild.value);
+	if ( event.keyCode === 40 && document.getElementById('propositions').firstChild.value !== 'undefined' ){
 		document.getElementById('propositions').firstChild.focus();
 	}
 	else{
@@ -96,21 +96,36 @@ function recherche(event){
 				
 				for(i = 0 ; i < responseJson.length; i++ ){
 			
-						var appareil = responseJson[i]['nom']+' '+responseJson[i]['marque'].toUpperCase()+' ('+responseJson[i]['categorie']+')';
+						var appareil = '<a href="http://www.honeypot-1.fr/app_dev.php/appareil/'+responseJson[i]['id']+'">'+responseJson[i]['nom']+' '+responseJson[i]['marque'].toUpperCase()+' ('+responseJson[i]['categorie']+')'+'</a>';
 						//var proposition = document.createTextNode(appareil);
 						var opt = document.createElement('li');
 						opt.innerHTML = appareil;
 						//opt.appendChild(proposition);
 						opt.setAttribute('id',responseJson[i]['id']);
 						opt.setAttribute('tabIndex',1);
-						opt.addEventListener("keyup",go,false);
-						opt.addEventListener("focus",surligne,false);
-						opt.addEventListener("blur",desurligne,false);
-						document.getElementById('propositions').appendChild(opt);
+						
+						var props = document.getElementById('propositions');
+						if( opt.addEventListener ){
+							opt.addEventListener("keyup",go,false);
+							opt.addEventListener("focus",surligne,false);
+							opt.addEventListener("blur",desurligne,false);
+						}
+						else if ( opt.attachEvent ) {
+							opt.attachEvent("onkeyup",go);
+							opt.attachEvent("onfocus",surligne);
+							opt.attachEvent("onblur",desurligne);
+						}
+						props.appendChild(opt);
+							if ( window.addEventListener ){
+								props.addEventListener('blur',function(){props.style.display = 'none';},false);
+							}
+							else if( opt.attachEvent ){
+								props.attachEvent('onblur',function(){props.style.display = 'none';});
+							}
+						}
 					}
-				}
 		
-			}
+				}
 	
 		};
 
@@ -125,13 +140,21 @@ function recherche(event){
 
 
 var barre = document.getElementById('motif');
+var props = document.getElementById('propositions');
+
 var i = 0;
 if ( window.addEventListener ){
+	
 	barre.addEventListener('keydown',recherche,false);
-
+	
+		props.addEventListener('blur',function(){
+			props.style.display = 'none';
+		},false);
 }
 else if( window.attachEvent ){
-	barre.attachEvent('keypress',recherche);
+	barre.attachEvent('onkeypress',recherche);
+	
+
 }
 
 
