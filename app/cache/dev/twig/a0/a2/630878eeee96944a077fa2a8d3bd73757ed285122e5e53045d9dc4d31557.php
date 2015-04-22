@@ -45,7 +45,7 @@ class __TwigTemplate_a0a2630878eeee96944a077fa2a8d3bd73757ed285122e5e53045d9dc4d
 
 ";
         // line 25
-        $this->env->loadTemplate("GGGNoticesBundle:Default:header2.html.twig")->display($context);
+        $this->env->loadTemplate("GGGNoticesBundle:Default:header_ins.html.twig")->display($context);
         // line 26
         echo "
 
