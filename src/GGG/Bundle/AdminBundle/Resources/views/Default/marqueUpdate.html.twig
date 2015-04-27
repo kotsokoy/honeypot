@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - Marque Update | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="/bundles/gggadmin/css/style_admin.css"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Update de {{ marque.nom }}</h1>
+
+<nav>
+<a href="{{ path('ggg_admin_users') }}">Opérations sur les Utilisateurs</a>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+<a href="{{ path('ggg_admin_marques') }}">Opérations sur les Marques</a>
+<a href="{{ path('ggg_admin_categories') }}">Opérations sur les Catégories</a>
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+
+
+<table>
+<tr>
+	<th>id</th> <th>nom</th> <th>logo</th>  <th>action</th>
+</tr>
+<tr>
+	<td>{{ marque.id }}</td>
+	<td>{{ marque.nom }}</td>
+	<td>{% if marque.logo is defined %}<img src="/bundles/gggnotices/images/{{ marque.logo }}" width="100px" height="100px"/>{% else %}logo non renseigné{% endif %}</td>
+	<td><button class="supprimer" id="{{ marque.id }}">supprimer</button></td>
+</tr>
+</table>
+
+
+
+<table>
+<tr>
+	<th>nom</th> <th>logo</th>
+</tr>
+<tr>
+	<td><input name="nom"   type="text"></td>
+	<td><input name="logo" type="file"></td>
+
+</tr>
+</table>
+<button class="enregistrer" id="{{ marque.id }}">Enregistrer les modifications</button>
+</div><!-- fin wrapper -->
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_marqueDelete.js"></script>
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_marqueUpdate.js"></script>
+</body>
+</html>

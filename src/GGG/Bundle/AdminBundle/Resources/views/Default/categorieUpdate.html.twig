@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - Categorie Update | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="/bundles/gggadmin/css/style_admin.css"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Update de {{ categorie.nom }}</h1>
+
+<nav>
+<a href="{{ path('ggg_admin_users') }}">Opérations sur les Utilisateurs</a>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+<a href="{{ path('ggg_admin_marques') }}">Opérations sur les Marques</a>
+<a href="{{ path('ggg_admin_categories') }}">Opérations sur les Catégories</a>
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+
+
+<table>
+<tr>
+	<th>id</th> <th>nom</th>  <th>action</th>
+</tr>
+<tr>
+	<td>{{ categorie.id }}</td>
+	<td>{{ categorie.nom }}</td>
+
+	<td><button class="supprimer" id="{{ categorie.id }}">supprimer</button></td>
+</tr>
+</table>
+
+
+
+<table>
+<tr>
+	<th>nom</th>
+</tr>
+<tr>
+	<td><input name="nom"   type="text"></td>
+
+</tr>
+</table>
+<button class="enregistrer" id="{{ categorie.id }}">Enregistrer les modifications</button>
+</div><!-- fin wrapper -->
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_categorieDelete.js"></script>
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_categorieUpdate.js"></script>
+</body>
+</html>

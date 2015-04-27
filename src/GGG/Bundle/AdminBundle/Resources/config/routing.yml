@@ -1,3 +1,91 @@
 ggg_admin_homepage:
     path:     /
     defaults: { _controller: GGGAdminBundle:Default:index }
+
+
+#### Users
+ggg_admin_users:
+    path:     /users
+    defaults: { _controller: GGGAdminBundle:Default:users }
+
+ggg_admin_user_delete:
+    path:     /user/delete/{id}
+    defaults: { _controller: GGGAdminBundle:Default:usersDelete }
+
+ggg_admin_user_update:
+    path:     /user/update/{id}
+    defaults: { _controller: GGGAdminBundle:Default:userUpdate }
+
+
+
+##### Appareils
+ggg_admin_appareils:
+    path:     /appareils
+    defaults: { _controller: GGGAdminBundle:Default:appareils }
+
+ggg_admin_appareil_delete:
+    path:     /appareil/delete/{id}
+    defaults: { _controller: GGGAdminBundle:Default:appareilDelete }
+
+ggg_admin_appareil_update:
+    path:     /appareil/update/{id}
+    defaults: { _controller: GGGAdminBundle:Default:appareilUpdate }
+
+
+ggg_admin_appareil_post:
+    path:     /appareil/post
+    defaults: { _controller: GGGAdminBundle:Default:appareilPost }
+
+
+##### Marques
+ggg_admin_marques:
+    path:     /marques
+    defaults: { _controller: GGGAdminBundle:Default:marques }
+
+ggg_admin_marque_delete:
+    path:     /marque/delete/{id}
+    defaults: { _controller: GGGAdminBundle:Default:marquesDelete }
+
+ggg_admin_marque_update:
+    path:     /marque/update/{id}
+    defaults: { _controller: GGGAdminBundle:Default:marqueUpdate }
+
+ggg_admin_marque_post:
+    path:     /marque/post
+    defaults: { _controller: GGGAdminBundle:Default:marquePost }
+
+
+##### Catégories
+ggg_admin_categories:
+    path:     /categories
+    defaults: { _controller: GGGAdminBundle:Default:categories }
+
+ggg_admin_categorie_delete:
+    path:     /categorie/delete/{id}
+    defaults: { _controller: GGGAdminBundle:Default:categoriesDelete }
+
+ggg_admin_categorie_update:
+    path:     /categorie/update/{id}
+    defaults: { _controller: GGGAdminBundle:Default:categorieUpdate }
+
+ggg_admin_categorie_post:
+    path:     /categorie/post
+    defaults: { _controller: GGGAdminBundle:Default:categoriePost }
+
+
+##### Notices
+ggg_admin_notices:
+    path:     /notices
+    defaults: { _controller: GGGAdminBundle:Default:notices }
+
+ggg_admin_notice_delete:
+    path:     /notice/delete/{id}
+    defaults: { _controller: GGGAdminBundle:Default:noticesDelete }
+
+ggg_admin_notice_update:
+    path:     /notice/update/{id}
+    defaults: { _controller: GGGAdminBundle:Default:noticeUpdate }
+
+ggg_admin_notice_post:
+    path:     /notice/post
+    defaults: { _controller: GGGAdminBundle:Default:noticePost }

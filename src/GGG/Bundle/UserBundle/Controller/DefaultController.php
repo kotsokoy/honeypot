@@ -180,6 +180,113 @@ class DefaultController extends Controller{
 			return $this->render('GGGNoticesBundle:Default:layout.html.twig');
 		}
 	}
+
+	/* 
+	desinscription, si c'est un GET on affiche juste la page, 
+
+	si c'est un POST c'est qu'on est sur la page et que le formulaire a ete soumis dans ce cas on procede a la suppression du compte */
+
+	public function desinscriptionAction(Request $request){
+
+		if( $request->isMethod('GET') ){
+			return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+		}
+
+		if( $request->isMethod('POST') ){
+
+			$manager = $this->getDoctrine()->getManager();
+			$repo = $manager->getRepository('GGGUserBundle:User');	
+
+			
+			if( $request->request->get('login') ){
+
+				/* on regarde si le login saisie, qu'il soit un username ou un e-mail, existe bien */
+				if( $repo->findBy(array("username" => $request->request->get('login'))) || $repo->findBy(array("email" => $request->request->get('login'))) ) {
+
+					$login = $request->request->get('login');
+
+				}
+				else{
+					
+					$session = $request->getSession();
+        			$session->getFlashBag()->add('erreur','le pseudo ou l\'e-mail renseigné n\'existe pas, aucun compte n\'a été supprimé');
+        			return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+				}
+			}
+
+			else{
+				$session = $request->getSession();
+        		$session->getFlashBag()->add('erreur','login mal renseigné');
+        		return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+			}
+
+
+			/* Cas du password, si on arrive jusque là c'est que le login est valide et qu'il correspond à un compte en base */
+
+			/* On regarde si le password et la confirmation on bien été rempli */
+			if( $request->request->get('password') && $request->request->get('password_conf') ){
+			
+				/* Ensuite on regarde si les passwords sont identiques */
+
+				/* Si oui, on recupere l'utilisateur, puis le salt correspondant à l'utilisateur,
+				  	puis on crypte le password, et on verifie que le pass crypté correspond a celui en base */
+				if( $request->request->get('password') == $request->request->get('password_conf') ){
+
+					if ( preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/',$login) ){
+						$user = $repo->findBy(array("email" => $login ))[0];
+					}
+					else{
+						$user = $repo->findBy(array("username" => $login ))[0];
+					}
+
+					
+					var_dump($user);
+					$pass_comp = crypt($request->request->get('password'),$user->getSalt());
+
+					/* si le mot de passe saisie crypté, correspond au mot de passe en base, alors on supprime le compte */
+					if ( $pass_comp == $user->getPassword() ){
+
+						$manager->remove($user);
+						$manager->flush();
+
+						$session = $request->getSession();
+        				$session->getFlashBag()->add('succes','Le compte de '.$login.' a été supprimé.');
+        				return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+					}
+					else{
+						$session = $request->getSession();
+        				$session->getFlashBag()->add('erreur','le mot de passe ne correspond pas au login, aucun compte n\'a été supprimé');
+        				return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+					}
+
+					
+				}
+				else{
+					$session = $request->getSession();
+        			$session->getFlashBag()->add('erreur','les mots de passe sont différents');
+        			return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+				}
+			}
+
+			else{
+				$session = $request->getSession();
+        		$session->getFlashBag()->add('erreur','mots de passe mal renseignés');
+        		return $this->render('GGGUserBundle:Default:desinscription.html.twig');
+			}
+
+
+		}
+
+
+
+	}
+
+
+
+
+
+
+
 }
 
 ?>

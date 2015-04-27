@@ -95,7 +95,8 @@ function recherche(event){
 			document.getElementById('noRes').style.display = 'none';
 				
 				for(i = 0 ; i < responseJson.length; i++ ){
-			
+						
+						/* appareil sera le li.innerHTML, on met un lien pour pouvoir cliquer sur la li */
 						var appareil = '<a href="http://www.honeypot-1.fr/app_dev.php/appareil/'+responseJson[i]['id']+'">'+responseJson[i]['nom']+' '+responseJson[i]['marque'].toUpperCase()+' ('+responseJson[i]['categorie']+')'+'</a>';
 						//var proposition = document.createTextNode(appareil);
 						var opt = document.createElement('li');

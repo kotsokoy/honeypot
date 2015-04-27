@@ -46,13 +46,6 @@ class Appareil
 
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="annee_prod", type="date")
-     */
-    private $anneeProd;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255)
@@ -66,13 +59,12 @@ class Appareil
      */
     private $creation;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=160)
-     */
-    private $description;
 
+
+
+    public function construct(){
+        $this->setCreation(new \DateTime('NOW'));
+    }
 
     /**
      * Get id
@@ -107,29 +99,6 @@ class Appareil
         return $this->nom;
     }
 
-
-    /**
-     * Set anneeProd
-     *
-     * @param \DateTime $anneeProd
-     * @return Appareil
-     */
-    public function setAnneeProd($anneeProd)
-    {
-        $this->anneeProd = $anneeProd;
-
-        return $this;
-    }
-
-    /**
-     * Get anneeProd
-     *
-     * @return \DateTime 
-     */
-    public function getAnneeProd()
-    {
-        return $this->anneeProd;
-    }
 
     /**
      * Set photo
@@ -177,28 +146,6 @@ class Appareil
         return $this->creation;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Appareil
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 
     /**
      * Set notice
@@ -229,7 +176,7 @@ class Appareil
      * @param \GGG\Bundle\NoticesBundle\Entity\Categorie $categorie
      * @return Appareil
      */
-    public function setCategorie(\GGG\Bundle\NoticesBundle\Entity\Notice $categorie)
+    public function setCategorie(\GGG\Bundle\NoticesBundle\Entity\Categorie $categorie)
     {
         $this->categorie = $categorie;
 
@@ -252,7 +199,7 @@ class Appareil
      * @param \GGG\Bundle\NoticesBundle\Entity\Marque $marque
      * @return Appareil
      */
-    public function setMarque(\GGG\Bundle\NoticesBundle\Entity\Notice $marque = null)
+    public function setMarque(\GGG\Bundle\NoticesBundle\Entity\Marque $marque = null)
     {
         $this->marque = $marque;
 

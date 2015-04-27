@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - User Update | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="/bundles/gggadmin/css/style_admin.css"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Update de {{ user.username }}</h1>
+
+<nav>
+<a href="{{ path('ggg_admin_users') }}">Opérations sur les Utilisateurs</a>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+<a href="{{ path('ggg_admin_marques') }}">Opérations sur les Marques</a>
+<a href="{{ path('ggg_admin_categories') }}">Opérations sur les Catégories</a>
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+
+
+<table>
+<tr>
+	<th>id</th> <th>username</th> <th>email</th>  <th>action</th>
+</tr>
+<tr>
+	<td>{{ user.id }}</td>
+	<td>{{ user.username }}</td>
+	<td>{{ user.email }}</td>
+	<td><button class="supprimer" id="{{ user.id }}">supprimer</button></td>
+</tr>
+</table>
+
+
+
+<table>
+<tr>
+	<th>username</th> <th>email</th>
+</tr>
+<tr>
+	<td><input name="nom"   type="text"></td>
+	<td><input name="email" type="email"></td>
+
+</tr>
+</table>
+<button class="enregistrer" id="{{user.id }}">Enregistrer les modifications</button>
+</div><!-- fin wrapper -->
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_userDelete.js"></script>
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_userUpdate.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - Categories | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="{{ asset('bundles/gggadmin/css/style_admin.css') }}"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Page d'administration des Catégories</h1>
+
+
+<nav>
+<a href="{{ path('ggg_admin_users') }}">Opérations sur les Utilisateurs</a>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+<a href="{{ path('ggg_admin_marques') }}">Opérations sur les Marques</a>
+
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+
+{% if categories is defined %}
+<h2>Liste des Catégories</h2>
+<table>
+<tr>
+	<th>id</th> <th>nom</th> <th>action</th>
+</tr>
+	{% for categorie in categories %}
+	<tr>
+	<td>{{ categorie.id }}</td>
+	<td>{{ categorie.nom }}</td>
+	<td><a class="modifier" href="{{ path('ggg_admin_categorie_update',{ id : categorie.id }) }}">modifier</a><button class="supprimer" id="{{ categorie.id }}">supprimer</button></td>
+	</tr>
+	{% endfor %}
+
+{% endif %}
+
+<table>
+<tr>
+	<th>nom</th> <th>action</th>
+</tr>
+<tr>
+	<td><input name="nom"   type="text"></td>
+	<td><button class="ajouter">ajouter</button></td>
+</tr>
+</table>
+</div><!-- fin wrapper -->
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_categorieDelete.js"></script>
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_categoriePost.js"></script>
+</body>
+</html>

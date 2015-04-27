@@ -40,12 +40,12 @@ Notice pour {{ appareil.nom }} de {{ appareil.marque.nom }} | mon-aspirateur.net
 
 <div class="appareil">
 
-<img src="/bundles/gggnotices/images/{{ appareil.photo }}.jpg" alt="{{ appareil.nom }}"/>
+<img src="/bundles/gggnotices/images/{{ appareil.photo }}" alt="{{ appareil.nom }}"/>
 
 
 {% if is_granted('ROLE_USER') and appareil.notice.fichier is defined %}
 
-<a href="/bundles/gggnotices/notices/{{ appareil.notice.fichier }}.pdf" title="notice pour {{ appareil.nom }}">
+<a href="/bundles/gggnotices/notices/{{ appareil.notice.fichier }}" title="notice pour {{ appareil.nom }}">
 Télécharger la notice de {{ appareil.categorie.nom|upper }} {{ appareil.marque.nom|upper }} {{ appareil.nom|upper }}
 </a>
 

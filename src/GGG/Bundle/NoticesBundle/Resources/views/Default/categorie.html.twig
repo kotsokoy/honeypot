@@ -44,7 +44,7 @@ Tous les {{ nom }} | mon-aspirateur.net
 {% for appareil in appareils %}
 <a href="{{ path('ggg_notices_appareil_id', { id: appareil.id }) }}">
 <div class="appareil">
-<img src="/bundles/gggnotices/images/{{ appareil.photo }}.jpg" alt="{{ appareil.nom }}"/>
+<img src="/bundles/gggnotices/images/{{ appareil.photo }}" alt="{{ appareil.nom }}"/>
 <strong class="nom">{{ appareil.marque.nom|upper }} {{ appareil.nom|upper }}</strong> 
 
 </div>

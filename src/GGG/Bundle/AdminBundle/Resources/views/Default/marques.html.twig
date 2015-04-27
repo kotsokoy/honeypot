@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - Marques | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="{{ asset('bundles/gggadmin/css/style_admin.css') }}"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Page d'administration des Marques</h1>
+
+
+<nav>
+<a href="{{ path('ggg_admin_users') }}">Opérations sur les Utilisateurs</a>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+
+<a href="{{ path('ggg_admin_categories') }}">Opérations sur les Catégories</a>
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+
+{% if marques is defined %}
+<h2>Liste des Marques</h2>
+<table>
+<tr>
+	<th>id</th> <th>nom</th> <th>logo</th> <th>action</th>
+</tr>
+	{% for marque in marques %}
+	<tr>
+	<td>{{ marque.id }}</td>
+	<td>{{ marque.nom }}</td>
+	<td>{% if marque.logo is defined %}<img src="/bundles/gggnotices/images/{{ marque.logo }}" width="100px" height="100px"/>{% else %}logo non renseigné{% endif %}</td>
+	<td><a class="modifier" href="{{ path('ggg_admin_marque_update',{ id : marque.id }) }}">modifier</a><button class="supprimer" id="{{ marque.id }}">supprimer</button></td>
+	</tr>
+	{% endfor %}
+
+{% endif %}
+<table>
+<tr>
+	<th>nom</th> <th>logo</th> <th>action</th>
+</tr>
+<tr>
+	<td><input name="nom"   type="text"></td>
+	<td><input name="logo" type="file"></td>
+	<td><button class="ajouter">ajouter</button></td>
+</tr>
+</table>
+</div><!-- fin wrapper -->
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_marqueDelete.js"></script>
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_marquePost.js"></script>
+</body>
+</html>

@@ -74,11 +74,11 @@ a:visited{
 
 h1{	
 	display: block;
-	width: 50%;
+	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 1%;
+	margin-bottom: 0;
 	padding: 15px;
 	vertical-align: middle;
 
@@ -114,9 +114,10 @@ h1{
 
 nav{
 	width: 100%;
-
+	margin-top: 2%;
 	text-align: center;
 	z-index: 3;
+	background-color: white;
 }
 
 .menu{
@@ -124,14 +125,13 @@ nav{
 
 	list-style-type: none;
 
-
 	text-align: center;
 }
 
 .menu li{
 	display: inline-block;
 	list-style-type: none;
-	margin: 10px 10px 0px 0px;
+	margin: 0px 10px 0px 0px;
 	background-color: #4B81A1;
 	padding: 10px 10px 10px 10px;
 	font-size: 20px;
@@ -166,9 +166,8 @@ nav{
 	position: relative;
 	margin: 0px;
 
-
 	width: 100%;
-	min-height: 650px;
+	min-height: 500px;
 	font-family: "Verdana", "Times New Roman", "Calibri Light", sans-serif;
 	color: #4B81A1;
 
@@ -188,8 +187,10 @@ nav{
 
 h2{
 	font-family: "Verdana", "Times New Roman", sans-serif;
-	margin-bottom: 1%;
-	font-size: 20px;
+	margin-bottom: 2%;
+	font-size: 25px;
+	padding-top: 40px;
+	color: #4B81A1;
 }
 
 

@@ -39,7 +39,7 @@
 
 <ul class="marques">
 {% for marque in marques %}
-<li class="marque"><a href="{{ path('ggg_notices_marques_nom',{ 'nom': marque.nom }) }}">{{ marque.nom|upper }}  {% if marque.logo %}<img src="/bundles/gggnotices/images/{{ marque.logo }}.jpg" alt="logo {{ marque.nom }}"/>{% else %}<img src="/bundles/gggnotices/images/erreur_logo_marque.png" alt="pas de logo disponible pour la marque {{ marque.nom }}"/>{% endif %}</a></li>
+<li class="marque"><a href="{{ path('ggg_notices_marques_nom',{ 'nom': marque.nom }) }}">{{ marque.nom|upper }}  {% if marque.logo %}<img src="/bundles/gggnotices/images/{{ marque.logo }}" alt="logo {{ marque.nom }}"/>{% else %}<img src="/bundles/gggnotices/images/erreur_logo_marque.png" alt="pas de logo disponible pour la marque {{ marque.nom }}"/>{% endif %}</a></li>
 {% endfor %}
 </ul>
 

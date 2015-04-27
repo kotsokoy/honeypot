@@ -7,6 +7,10 @@ ggg_user_inscription:
     pattern: /inscription
     defaults : { _controller: GGGUserBundle:Default:inscription }
 
+ggg_user_desinscription:
+    pattern: /desinscription
+    defaults : { _controller: GGGUserBundle:Default:desinscription }
+
 ggg_user_alerte:
     pattern: /alerte/{id}
     defaults: { _controller: GGGUserBundle:Default:alerte }

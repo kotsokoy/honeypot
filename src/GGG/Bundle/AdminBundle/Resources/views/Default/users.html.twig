@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Admin - Users | mon-aspirateur.net
+</title>
+<link rel="Stylesheet" type="text/css" href="{{ asset('bundles/gggadmin/css/style_admin.css') }}"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+<h1>Page d'administration des Utilisateurs</h1>
+
+
+<nav>
+<a href="{{ path('ggg_admin_appareils') }}">Opérations sur les Appareils</a>
+<a href="{{ path('ggg_admin_marques') }}">Opérations sur les Marques</a>
+<a href="{{ path('ggg_admin_categories') }}">Opérations sur les Catégories</a>
+<a href="{{ path('ggg_admin_notices') }}">Opérations sur les Notices</a>
+</nav>
+
+{% if users is defined %}
+<h2>Liste des Utilisateurs</h2>
+<table>
+<tr>
+	<th>id</th> <th>username</th> <th>email</th> <th>action</th>
+</tr>
+	{% for user in users %}
+	<tr>
+	<td>{{ user.id }}</td>
+	<td>{{ user.username }}</td>
+	<td>{{ user.email }}</td>
+	<td><a class="modifier" href="{{ path('ggg_admin_user_update',{ id : user.id }) }}">modifier</a><button class="supprimer" id="{{ user.id }}">supprimer</button></td>
+	</tr>
+	{% endfor %}
+
+{% endif %}
+
+
+</div><!-- fin wrapper -->
+
+<script type="text/javascript" src="/bundles/gggadmin/js/admin_userDelete.js"></script>
+
+</body>
+</html>

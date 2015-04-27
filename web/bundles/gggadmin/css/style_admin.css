@@ -1,0 +1,159 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Verdana", sans-serif;
+	font-size: 18px;
+}
+
+
+h1{
+	font-size: 22px;
+	margin: 30px;
+	text-align: center;
+}
+
+
+nav{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+nav a{
+	text-decoration: none;
+	margin: auto;
+	padding: 10px;
+	background-color: #4B81A1;
+	color: white;
+}
+
+nav a:hover{
+	text-decoration: none;
+
+	color: white;
+}
+
+nav a:visited{
+	text-decoration: none;
+
+	color: white;
+}
+
+.wrapper{
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+h2{
+	margin: 10px;
+	font-size: 20px;
+	text-align: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper table{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-style: solid;
+	border-color: silver;
+	padding: 6px;
+}
+
+.wrapper table tr{
+
+	margin: 10px;
+
+}
+
+.wrapper table td{
+
+	padding: 5px;
+
+}
+
+.wrapper table td img{
+	display: inline-block;
+}
+
+.modifier{
+	text-decoration: none;
+	display: inline-block;
+	padding: 5px;
+	margin-left: 3px;
+	margin-right: 3px;
+	color: white;
+	background-color: #5522E9;
+	border-radius: 5px;
+	border-width: 0px;
+}
+
+.modifier:hover{
+	color: white;
+	text-decoration: none;
+	background-color: #3300FF;
+}
+
+.modifier:visited{
+	color: white;
+	text-decoration: none;
+	background-color: #5522E9;
+}
+
+.supprimer{
+	display: inline-block;
+	padding: 5px;
+	margin-left: 3px;
+	margin-right: 3px;
+	color: white;
+	background-color: #DA2233;
+	border-radius: 5px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+.supprimer:hover{
+	color: white;
+	background-color: #FF1122;
+}
+
+.enregistrer{
+	padding: 5px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	background-color: #2EDD32;
+	border-radius: 5px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+.enregistrer:hover{
+	color: white;
+	background-color: #2AEC12;
+}
+
+.ajouter{
+	padding: 5px;
+	margin-left: 3px;
+	margin-right: 3px;
+	color: white;
+	background-color: #2EDD32;
+	border-radius: 5px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+.ajouter:hover{
+	color: white;
+	background-color: #2AEC12;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"/>
+
+
+{% block stylesheets %}
+
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/gggnotices/css/style_liste.css') }}"/>
+<link type="text/css" rel="stylesheet" href="{{ asset('bundles/ggguser/css/form_ins.css') }}"/>
+
+{% endblock %}
+
+
+<title>
+{% block title %}
+Supprimer mon compte | mon-aspirateur.net
+{% endblock %}
+</title>
+
+</head>
+<body>
+
+{% include 'GGGNoticesBundle:Default:header_ins.html.twig' %}
+
+
+<div class="wrapper">
+{% block wrapper %}
+
+<ul id="propositions">
+</ul>
+
+<h2>Vous-êtes sur le point de supprimer votre compte</h2>
+
+{% for succes in app.session.flashbag.get('succes') %}<p class="info">{{ succes|raw }}</p>{% endfor %}
+{% for erreur in app.session.flashbag.get('erreur') %}<p class="erreur">{{ erreur|raw }}</p>{% endfor %}
+<form action="" method="POST" id="form_ins">
+
+<div class="login"><label for="login" title="login">Login/E-mail</label><input id="login" name="login" type="text" value="{% if user.username is defined %}{{ user.username }}{% endif %}"/></div>
+
+<div class="password"><label for="password" title="password">Mot de passe</label><input id="password" name="password" type="password" value=""/></div>
+
+<div class="password"><label for="password_conf" title="confirm password">Confirmation mot de passe</label><input id="password_conf" name="password_conf" type="password" value=""/></div>
+
+<input name="btn_submit" type="submit" value="supprimer mon compte"/>
+</form>
+
+
+{% endblock %}
+</div><!-- fin wrapper-->
+{% include 'GGGNoticesBundle:Default:footer.html.twig' %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/formulaires.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/recherches.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/gggnotices/js/propositions.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
